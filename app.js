@@ -33,7 +33,7 @@ var cache = (duration) => {
 }
 
 app.use(function(req, res, next) {
-if (req.method !== 'OPTIONS' && req.headers['authorization'] !== 'Bearer af24353tdsfw') {
+if (!req.headers.authorization && req.headers['authorization'] !== 'Bearer af24353tdsfw') {
 	res.statusCode = 501;
 	return next(new Error('Please provide  authorization'));
 }
